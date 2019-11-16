@@ -11,8 +11,15 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('auth/', obtain_jwt_token),
+
+    # Customer api view
     path('customers/', views.customer_list),
     url(r'^api/customers/$', views.customer_list),
     url(r'^api/customers/(?P<pk>[0-9]+)$', views.getCustomer),
+
+    # Stock api view
+    path('stocks/',views.stock_list),
+    url(r'^api/stocks/$', views.stock_list),
+    url(r'^api/stocks/(?P<pk>[0-9]+)$', views.getStock),
 
 ]
