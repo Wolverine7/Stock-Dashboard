@@ -1,21 +1,29 @@
 <template>
-  <div>
-    <v-toolbar class="cyan lighten-1" dark prominent height="65">
+    <div>
+    <nav>
+        <v-toolbar class="cyan lighten-1" dark prominent height="40">
 
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+            <v-toolbar-title class="text-uppercase gray--text">
+                <span class="font-weight-light">Stock</span>
+                <span>Dashboard</span>
+            </v-toolbar-title>
 
-      <v-toolbar-title>Stock Dashboard</v-toolbar-title>
 
+        </v-toolbar>
 
-      <v-btn icon>
-        <v-icon>mdi-export</v-icon>
-      </v-btn>
-    </v-toolbar>
-  </div>
+     </nav>
+        </div>
 </template>
 
 <script>
 
+    export default {
+        data(){
+          return {
+
+          }
+        }
+    }
 </script>
 
 <style>

@@ -1,0 +1,1 @@
+web: gunicorn stockdashboard.wsgi --log-file -

@@ -1,6 +1,9 @@
 <template>
-    <v-navigation-drawer id="app-drawer" class="cyan lighten-1" dark permanent width="260" mobile-break-point="991">
-
+    <v-navigation-drawer id="app-drawer" class="cyan lighten-1" app dark floating persistent mobile-break-point="991" width="260">
+      <v-toolbar-title class="ml-7 text-uppercase light--text">
+        <span class="font-weight-light">Stock</span>
+        <span>Dashboard</span>
+      </v-toolbar-title>
       <v-list>
         <v-list-tile avatar>
           <v-list-tile-avatar color="white">
@@ -24,7 +27,7 @@
       </v-list>
 
       <template v-slot:append>
-        <div class="pa-2">
+        <div class="mb-10 pa-2">
           <v-btn block>Logout</v-btn>
         </div>
       </template>
