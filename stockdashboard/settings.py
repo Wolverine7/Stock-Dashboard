@@ -147,7 +147,7 @@ WEBPACK_LOADER = {
     'DEFAULT': {
         'CACHE': not DEBUG,
         'BUNDLE_DIR_NAME': '/bundles/',  # must end with slash
-        'STATS_FILE': os.path.join(FRONTEND_DIR, 'webpack-stats.json'),
+        'STATS_FILE': os.path.join(FRONTEND_DIR, 'dist/static'),
     }
 }
 
@@ -194,7 +194,11 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 # )
 
 STATICFILES_DIRS = [
-  os.path.join(BASE_DIR, 'dist/static'),
+  os.path.join(FRONTEND_DIR, 'dist/static'),
+]
+
+TEMPLATES[0]['DIRS'] += [
+    os.path.join(FRONTEND_DIR, 'dist'),
 ]
 
 # Update database configuration with $DATABASE_URL.
@@ -209,6 +213,7 @@ DATABASES['default'] = dj_database_url.config()
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 
 try:
