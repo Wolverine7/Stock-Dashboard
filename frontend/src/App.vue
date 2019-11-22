@@ -8,16 +8,17 @@
     </v-content>
 
 
+
 </v-app>
 
 </template>
 
 <script>
-// import Drawer from './components/Drawer';
 import Navbar from './components/Navbar';
 import Drawer from './components/Drawer';
 import CommitChart from './js/CommitChart';
 import Api from './components/Api';
+
 
 export default {
   name: 'App',
@@ -25,7 +26,7 @@ export default {
       Navbar,
       Drawer,
       CommitChart,
-      Api
+      Api,
     },
 
     data: () => ({
