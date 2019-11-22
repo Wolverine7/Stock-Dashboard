@@ -4,8 +4,16 @@ from django.views.decorators.csrf import csrf_exempt
 from .serializers import *
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from django.shortcuts import render
 
 # Create your views here.
+
+# Welcome page
+
+
+def welcome(request):
+    return render(request, 'portfolio/welcome.html',
+                  {'portfolio': welcome})
 
 # Customer API
 @csrf_exempt
