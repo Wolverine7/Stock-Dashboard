@@ -1,0 +1,82 @@
+{% load static %}
+
+{% block content %}
+
+    <html>
+    <body class="backgroundImage">
+            <div class="container">
+                <div class="text col-xl-6 col-lg-7">
+                    <h1 class="geo-style2 title2"><b>Stock Management</b></h1>
+                        <h3><em>"An important key to investing is to remember that stocks are not lottery tickets" - Peter Lynch </h3>
+
+                    <div class="button_group">
+                            <a href=""><button type="button" class="btn btn-warning"><b>Login</b></button></a>
+                            <a><button type="button" class="btn btn-success" style="margin-left:14px;"><b>Sign-up</b></button></a>
+                    </div>
+                </div>
+            </div>
+    </body>
+
+
+
+    <head>
+        <style>
+                    html,body{
+                        width:100%;
+                        height:100%
+                    }
+                    .text{
+                        padding-top:170px;
+                        font-family:'FontAwesome';
+                    }
+
+                    .geo-style2{font:italic 3em Georgia, serif;}
+
+                    .backgroundImage{
+                        background-image: url("{% static "images/image1.jpeg" %}");
+                        background-size: 100%;
+                    }
+                    .title2{
+                        color:white;
+                    }
+
+                    .container{
+                        margin-top: 60px;
+                        color: white;
+                    }
+
+                    .button_group{
+                        padding-top:5px;
+                        border-top: white;
+                        width:410px;
+                        margin-top:5px;
+                    }
+                    .button_group button{
+                        margin-top: 10px;
+                        font-size: 18px;
+
+                    }
+        </style>
+                <script type="text/javascript">
+                    var curIndex = 0;
+                    var timeInterval = 10000;
+                    var arr = new Array();
+                    arr[0] = "{% static "images/image1.jpeg" %}";
+                    arr[1] = "{% static "images/image2.jpeg" %}";
+                    arr[2] = "{% static "images/image3.jpeg" %}";
+                    arr[3] = "{% static "images/image4.jpeg" %}";
+                    setInterval(changeImg, timeInterval);
+                    function changeImg() {
+                        if (curIndex == arr.length - 1) {
+                            curIndex = 0;
+                        } else {
+                            curIndex += 1;
+                        }
+                    document.body.style.backgroundImage = "url("+arr[curIndex]+")";
+                        }
+                </script>
+  </head>
+
+
+    </html>
+{% endblock %}
