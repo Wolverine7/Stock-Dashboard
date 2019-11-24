@@ -14,8 +14,8 @@
 
 <script>
 // import Drawer from './components/Drawer';
-import Navbar from '../../../../../Downloads/83f19t2-master/frontend/src/components/Navbar';
-import Drawer from '../../../../../Downloads/83f19t2-master/frontend/src/components/Drawer';
+import Navbar from './components/Navbar';
+import Drawer from './components/Drawer';
 import CommitChart from './js/CommitChart';
 import Api from './components/Api';
 
