@@ -25,7 +25,7 @@ SECRET_KEY = 'y25t$7qu4vmx^mfk8@3#%scu6zu#*86)k&)9($%z-x3c**+4@n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'dashboard.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'dist')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,3 +118,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+  os.path.join(BASE_DIR, 'dist', 'static'),
+]
+
+TEMPLATES[0]['DIRS'] += [
+    os.path.join(BASE_DIR,),
+]
