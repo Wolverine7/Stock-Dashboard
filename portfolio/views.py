@@ -4,8 +4,10 @@ from .serializers import *
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticatedOrReadOnly,IsAuthenticated
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from rest_framework.decorators import api_view,permission_classes,authentication_classes
+from django.contrib.auth.models import User
+
 
 
 # Create your views here.
@@ -14,8 +16,13 @@ from rest_framework.decorators import api_view,permission_classes,authentication
 
 
 def welcome(request):
-    return render(request, 'portfolio/welcome.html',
-                  {'portfolio': welcome})
+
+    if request.user.is_authenticated:
+        return render(request, 'index.html',)
+    else:
+        return render(request,
+                      'portfolio/welcome.html')
+
 
 # Customer API
 @csrf_exempt
