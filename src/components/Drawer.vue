@@ -1,6 +1,5 @@
 <template>
-    <v-navigation-drawer id="app-drawer" class="cyan lighten-1" dark permanent width="260" mobile-break-point="991">
-
+    <v-navigation-drawer id="app-drawer" class="cyan lighten-1" app dark floating persistent mobile-break-point="991" width="260">
       <v-list>
         <v-list-tile avatar>
           <v-list-tile-avatar color="white">
