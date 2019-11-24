@@ -9,7 +9,7 @@ app_name = 'portfolio'
 
 urlpatterns = [
 
-    path('', views.welcome, name='welcome'),
+    # path('', views.welcome, name='welcome'),
     # url(r'^welcome/$', views.welcome, name='welcome'),
 
     path('admin/', admin.site.urls),
