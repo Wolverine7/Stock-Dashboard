@@ -40,13 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'portfolio',
-    'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 REST_FRAMEWOKR = {
@@ -79,10 +79,16 @@ JWT_AUTH = {
 
 CORS_ORIGIN_WHITELIST = (
     'https://localhost:8080',
-    'https://127.0.0.1:8080'
+    'https://127.0.0.1:8080',
+    'https://127.0.0.1:8000',
+    'https://127.0.0.1:8000',
+    # 'localhost:8080',
+    # 'localhost',
 )
 
 CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
 
 ROOT_URLCONF = 'dashboard.urls'
 

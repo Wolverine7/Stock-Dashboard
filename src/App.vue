@@ -1,11 +1,12 @@
 <template>
 <v-app>
-    <Navbar/>
-    <Drawer></Drawer>
-    <v-content>
-        <CommitChart id="chart"></CommitChart>
-        <Api></Api>
-    </v-content>
+    <router-view/>
+    <!--<Navbar/>-->
+    <!--<Drawer></Drawer>-->
+    <!--<v-content>-->
+        <!--<CommitChart id="chart"></CommitChart>-->
+        <!--<Api></Api>-->
+    <!--</v-content>-->
 
 
 </v-app>
@@ -14,24 +15,33 @@
 
 <script>
 // import Drawer from './components/Drawer';
-import Navbar from './components/Navbar';
-import Drawer from './components/Drawer';
-import CommitChart from './js/CommitChart';
-import Api from './components/Api';
-
+// import Navbar from './components/Navbar';
+// import Drawer from './components/Drawer';
+// import CommitChart from './js/CommitChart';
+// import Api from './components/Api';
+import router from "./router";
+// import Dashboard from "./components/Dashboard";
 export default {
   name: 'App',
   components: {
-      Navbar,
-      Drawer,
-      CommitChart,
-      Api
+      // Navbar,
+      // Drawer,
+      // CommitChart,
+      // Api
+      // Dashboard
     },
 
     data: () => ({
 
     }),
-    method:() => ({})
+    method:() => ({
+        checkLoggedIn() {
+            this.$session.start();
+            if (!this.$session.has("token")) {
+                router.push("/auth");
+            }
+        }
+    })
 
     };
 </script>
