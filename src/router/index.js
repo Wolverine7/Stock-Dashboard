@@ -1,22 +1,27 @@
-import Vue from 'vue'
-import Router from 'vue-router'
 import Auth from '../components/Auth'
-import App from "../App";
-import Dashboard from "../components/Dashboard";
+import Dashboard from "../components/dashboard";
+import Home from "../Home"
 
-Vue.use(Router);
+export const routes =
+    // ({
+//   mode: 'history',
+//   base: process.env.BASE_URL,
+//   routes:
+  [
 
-export default new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes: [
+      {
+          path:'/',
+          name:'Home',
+          component: Home
+      },
 
-    // Home Path
+    // Dashboard Path
     {
-      path: '/',
+      path: '/dashboard',
       name: 'Dashboard',
       component:Dashboard
     },
+
     //  Authentication Path
     {
       path: '/auth',
@@ -24,4 +29,4 @@ export default new Router({
       component: Auth
     }
   ]
-})
+// })

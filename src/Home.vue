@@ -23,7 +23,7 @@
           </v-list-item-action>
 
           <v-list-item-content>
-            <v-list-item-title v-on:click="tologin">Log in</v-list-item-title>
+            <v-list-item-title @click="tologin">Log in</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -33,7 +33,7 @@
           </v-list-item-action>
 
           <v-list-item-content>
-            <v-list-item-title onclick="goToDashboard()">My Dashboard</v-list-item-title>
+            <v-list-item-title @click="goToDashboard()">My Dashboard</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -56,7 +56,7 @@
       dark
     >
        <v-toolbar-title>HOME</v-toolbar-title>
-        <v-img  :src="require('../assets/bull.svg')" height="50" padding-right="80" contain  class="cyan darken-5"></v-img>
+        <v-img  :src="require('./assets/bull.svg')" height="50" padding-right="80" contain  class="cyan darken-5"></v-img>
 
       <v-spacer />
 
@@ -84,7 +84,7 @@
 
 
 <script>
-  import router from '../router'
+  import { routes } from './router'
 
   export default {
     name: 'Home',
@@ -102,7 +102,7 @@
     methods:() => ({
 
       tologin: function() {
-         router.push("/auth");
+         routes.push("/auth");
       },
 
       logout: function() {
@@ -115,11 +115,11 @@
 
 
       goHome: function() {
-        router.push('/');
+        routes.push('/');
       },
 
       goToDashboard: function() {
-        router.push('/dashboard');
+        routes.push('/dashboard');
       },
 
     }),
