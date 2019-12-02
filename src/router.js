@@ -6,31 +6,32 @@ import Vue from 'vue'
 
 Vue.use(VueRouter)
 
-const router =  new VueRouter({
+export default new VueRouter({
 
     mode: 'history',
     base: process.env.BASE_URL,
     routes:
-    [
+        [
 
-        {
-            path: '',
-            name: 'Home',
-            component: Home
-        },
+            {
+                path: '',
+                name: 'Home',
+                component: Home
+            },
 
-        // Dashboard Path
-        {
-            path: '/dashboard',
-            name: 'Dashboard',
-            component: Dashboard
-        },
+            // Dashboard Path
+            {
+                path: '/dashboard',
 
-        //  Authentication Path
-        {
-            path: '/auth',
-            name: 'Auth',
-            component: Auth
-        }
-    ]
+                name: 'Dashboard',
+                component: Dashboard
+            },
+
+            //  Authentication Path
+            {
+                path: '/auth',
+                name: 'Auth',
+                component: Auth
+            }
+        ]
 })
