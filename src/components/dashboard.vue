@@ -21,7 +21,7 @@ import Api from './Api';
 import router from "../router";
 
 export default {
-  name: '#dashboard',
+  name: 'Dashboard',
   components: {
       Navbar,
       Drawer,

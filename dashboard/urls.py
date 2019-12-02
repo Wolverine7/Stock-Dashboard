@@ -10,7 +10,7 @@ from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('dashboard/', TemplateView.as_view(template_name="application.html"), name="app"),
-    path('',TemplateView.as_view(template_name="index.html"), name="app"),
+    path('', TemplateView.as_view(template_name="index.html"), name="app"),
     # path('', views.welcome, name='home'),
     path('portfolio/', include('portfolio.urls', namespace='portfolio')),
     # JWT auth

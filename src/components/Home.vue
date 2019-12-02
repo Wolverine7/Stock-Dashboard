@@ -23,7 +23,7 @@
           </v-list-item-action>
 
           <v-list-item-content>
-            <v-list-item-title v-on:click="tologin">Log in</v-list-item-title>
+            <v-list-item-title @click="tologin">Log in</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -33,7 +33,7 @@
           </v-list-item-action>
 
           <v-list-item-content>
-            <v-list-item-title onclick="goToDashboard()">My Dashboard</v-list-item-title>
+            <v-list-item-title @click="goToDashboard()">My Dashboard</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -101,7 +101,7 @@
 
     methods:() => ({
 
-      tologin: function() {
+      tologin() {
          router.push("/auth");
       },
 
@@ -110,12 +110,12 @@
         localStorage.removeItem('log_user');
         localStorage.removeItem('token');
         this.authenticated = false;
-        window.location = "/"
+        window.location = ""
       },
 
 
       goHome: function() {
-        router.push('/');
+        router.push('');
       },
 
       goToDashboard: function() {
