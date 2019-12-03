@@ -1,54 +1,123 @@
 <template>
-<v-app>
-    <router-view/>
-    <!--<Navbar/>-->
-    <!--<Drawer></Drawer>-->
-    <!--<v-content>-->
-        <!--<CommitChart id="chart"></CommitChart>-->
-        <!--<Api></Api>-->
-    <!--</v-content>-->
+    <v-app>
+        <v-navigation-drawer
+                v-model="drawer"
+                app
+                right
+        >
+            <v-list dense>
+                <v-list-item link>
+                    <v-list-item-action>
+                        <v-icon>mdi-home</v-icon>
+                    </v-list-item-action>
+
+                    <v-list-item-content>
+                        <v-list-item-title v-on:click="goHome">Home</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
 
 
-</v-app>
+                <v-list-item link>
+                    <v-list-item-action>
+                        <v-icon>mdi-contact-mail</v-icon>
+                    </v-list-item-action>
 
+                    <v-list-item-content>
+                        <v-list-item-title @click="tologin">Log in</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+
+                <v-list-item link>
+                    <v-list-item-action>
+                        <v-icon>mdi-contact-mail</v-icon>
+                    </v-list-item-action>
+
+                    <v-list-item-content>
+                        <v-list-item-title @click="goToDashboard()">My Dashboard</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+
+                <v-list-item link>
+                    <v-list-item-action>
+                        <v-icon>mdi-contact-mail</v-icon>
+                    </v-list-item-action>
+
+                    <v-list-item-content>
+                        <v-list-item-title>Meet Our Team</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+
+            </v-list>
+        </v-navigation-drawer>
+
+        <v-app-bar
+                app
+                color="cyan"
+                dark
+        >
+            <v-toolbar-title>HOME</v-toolbar-title>
+            <v-img :src="require('./assets/bull.svg')" height="50" padding-right="80" contain
+                   class="cyan darken-5"></v-img>
+
+            <v-spacer/>
+
+            <v-toolbar-title>ACTIONS</v-toolbar-title>
+
+            <v-app-bar-nav-icon @click.stop="drawer = !drawer"/>
+        </v-app-bar>
+
+
+        <!--Page Body-->
+        <v-content>
+            <router-view/>
+        </v-content>
+
+        <v-footer
+                color="cyan"
+                app
+        >
+            <v-spacer/>
+
+            <span class="white--text">&copy; 2019</span>
+        </v-footer>
+    </v-app>
 </template>
 
 <script>
-// import Drawer from './components/Drawer';
-// import Navbar from './components/Navbar';
-// import Drawer from './components/Drawer';
-// import CommitChart from './js/CommitChart';
-// import Api from './components/Api';
-import router from "./router";
-// import Dashboard from "./components/Dashboard";
-export default {
-  name: 'App',
-  components: {
-      // Navbar,
-      // Drawer,
-      // CommitChart,
-      // Api
-      // Dashboard
-    },
+    import router from './router'
 
-    data: () => ({
+    export default {
+        name: '#app',
 
-    }),
-    method:() => ({
-        checkLoggedIn() {
-            this.$session.start();
-            if (!this.$session.has("token")) {
-                router.push("/auth");
-            }
-        }
-    })
+        data: () => ({
+            authenticated: false,
+        }),
 
+        methods: ({
+            tologin() {
+                router.push('/auth');
+            },
+
+            logout() {
+                localStorage.removeItem('isAuthenticates');
+                localStorage.removeItem('log_user');
+                localStorage.removeItem('token');
+                this.authenticated = false;
+                window.location = ""
+            },
+
+
+            goHome() {
+                router.push('');
+            },
+
+            goToDashboard() {
+                router.push('/dashboard');
+            },
+        }),
     };
 </script>
 
 <style>
-    #chart{
-       width: 500px;
-       height: 500px;
-    }
+
 </style>

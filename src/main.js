@@ -1,12 +1,30 @@
 import Vue from 'vue'
-import App from './App.vue'
 import vuetify from './plugins/vuetify';
-import routes from './router/index.js';
+import router from './router';
+import App from "./App";
+import VueSession from 'vue-session'
+
+Vue.use(VueSession)
 
 Vue.config.productionTip = false
 
 new Vue({
+  router,
+  el:'#app',
   vuetify,
-  router: routes,
-  render: h => h(App)
-}).$mount('#app')
+  render: h=>h (App),
+})
+
+// new Vue({
+//   vuetify,
+//   router,
+//   render: h=>h(Home)
+// }).$mount('#app')
+
+
+// new Vue({
+//   el:"#dashboard",
+//   vuetify,
+//   router,
+//   render: h => h(Dashboard)
+// })

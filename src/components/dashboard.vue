@@ -1,23 +1,24 @@
 <template>
-    <v-app>
+<v-app>
+    <router-view/>
     <Navbar/>
-    <Drawer></Drawer>
+    <Drawer/>
     <v-content>
         <CommitChart id="chart"></CommitChart>
-        <canvas id="radar-chart" width="800" height="600"></canvas>
         <Api></Api>
     </v-content>
 
 
 </v-app>
+
 </template>
 
 <script>
-    // import Drawer from './components/Drawer';
 import Navbar from './Navbar';
 import Drawer from './Drawer';
 import CommitChart from '../js/CommitChart';
 import Api from './Api';
+import router from "../router";
 
 export default {
   name: 'Dashboard',
@@ -26,10 +27,26 @@ export default {
       Drawer,
       CommitChart,
       Api,
-    }
-}
+    },
+
+    data: () => ({
+
+    }),
+    method:() => ({
+        checkLoggedIn() {
+            this.$session.start();
+            if (!this.$session.has("token")) {
+                router.push("/auth");
+            }
+        }
+    })
+
+    };
 </script>
 
 <style>
-
+    #chart{
+       width: 500px;
+       height: 500px;
+    }
 </style>
