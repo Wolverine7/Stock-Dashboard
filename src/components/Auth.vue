@@ -64,7 +64,7 @@
 <script>
 import axios from 'axios';
 import swal from 'sweetalert2';
-import { routes } from '../router';
+import router from '../router';
 
 export default {
     name: 'Auth',
@@ -92,7 +92,7 @@ export default {
               axios.post('http://localhost:8080/auth/', this.credentials).then(res => {
                 this.$session.start();
                 this.$session.set('token', res.data.token);
-                routes.push('/dashboard');
+                router.push('/dashboard');
               }).catch(e => {
                 this.loading = false;
                 swal.fire({

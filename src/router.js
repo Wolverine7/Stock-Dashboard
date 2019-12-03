@@ -1,6 +1,6 @@
 import Auth from './components/Auth'
 import Dashboard from "./components/dashboard";
-import Home from "./components/Home";
+import App from './App'
 import VueRouter from 'vue-router';
 import Vue from 'vue'
 
@@ -15,14 +15,13 @@ export default new VueRouter({
 
             {
                 path: '',
-                name: 'Home',
-                component: Home
+                name: 'App',
+                component: App
             },
 
             // Dashboard Path
             {
                 path: '/dashboard',
-
                 name: 'Dashboard',
                 component: Dashboard
             },
