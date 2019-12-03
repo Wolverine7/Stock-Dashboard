@@ -98,7 +98,7 @@
                 router.push('/auth');
             },
 
-            logout: function () {
+            logout() {
                 localStorage.removeItem('isAuthenticates');
                 localStorage.removeItem('log_user');
                 localStorage.removeItem('token');
@@ -107,11 +107,11 @@
             },
 
 
-            goHome: function () {
+            goHome() {
                 router.push('');
             },
 
-            goToDashboard: function () {
+            goToDashboard() {
                 router.push('/dashboard');
             },
         }),
