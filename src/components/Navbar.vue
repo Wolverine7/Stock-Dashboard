@@ -1,17 +1,19 @@
 <template>
-  <div>
-    <v-toolbar class="cyan lighten-1" dark prominent height="65">
+    <v-app-bar
+            app
+            color="cyan"
+            dark
+    >
+        <v-toolbar-title>HOME</v-toolbar-title>
+        <v-img :src="require('../assets/bull.svg')" height="50" padding-right="80" contain
+               class="cyan darken-5"></v-img>
 
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+        <v-spacer/>
 
-      <v-toolbar-title>Stock Dashboard</v-toolbar-title>
+        <v-toolbar-title>ACTIONS</v-toolbar-title>
 
-
-      <v-btn icon>
-        <v-icon>mdi-export</v-icon>
-      </v-btn>
-    </v-toolbar>
-  </div>
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer"/>
+    </v-app-bar>
 </template>
 
 <script>

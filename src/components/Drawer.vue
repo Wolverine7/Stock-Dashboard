@@ -2,9 +2,9 @@
     <v-navigation-drawer id="app-drawer" class="cyan lighten-1" app dark floating persistent mobile-break-point="991" width="260">
       <v-list>
         <v-list-tile avatar>
-          <v-list-tile-avatar color="white">
-            <v-img  :src="require('../assets/bull.svg')" height="70" contain  class="cyan darken-5"></v-img>
-          </v-list-tile-avatar>
+<!--          <v-list-tile-avatar color="white">-->
+<!--            <v-img  :src="require('../assets/bull.svg')" height="70" contain  class="cyan darken-5"></v-img>-->
+<!--          </v-list-tile-avatar>-->
         </v-list-tile>
 
         <v-list-item

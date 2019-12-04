@@ -1,6 +1,6 @@
 import Auth from './components/Auth'
 import Dashboard from "./components/dashboard";
-import App from './App'
+import Drawer from './components/HomeDrawer';
 import VueRouter from 'vue-router';
 import Vue from 'vue'
 
@@ -9,14 +9,15 @@ Vue.use(VueRouter)
 export default new VueRouter({
 
     mode: 'history',
-    base: process.env.BASE_URL,
+    // base: process.env.BASE_URL,
+    base: 'localhost:8000',
     routes:
         [
 
             {
                 path: '',
-                name: 'App',
-                component: App
+                name: 'Drawer',
+                component: Drawer,
             },
 
             // Dashboard Path

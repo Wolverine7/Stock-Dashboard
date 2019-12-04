@@ -32,7 +32,7 @@ export default {
     data: () => ({
 
     }),
-    method:() => ({
+    methods: ({
         checkLoggedIn() {
             this.$session.start();
             if (!this.$session.has("token")) {
