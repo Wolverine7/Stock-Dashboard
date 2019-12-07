@@ -4,9 +4,10 @@
                 app
                 clipped-left
         >
-
-            <v-app-bar-nav-icon @click.stop="drawer = true" />
-            <v-toolbar-title>MavStocks</v-toolbar-title>
+            <v-toolbar-title>
+            <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+            <router-link to="" tag="span" style="cursor: pointer">MavStocks</router-link>
+            </v-toolbar-title>
 
 
             <v-spacer></v-spacer>

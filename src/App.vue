@@ -15,10 +15,10 @@
 // import HomeNav from "./components/HomeNav";
 
     export default {
-        name: '#app',
+        name: 'App',
 
         components: {
-
+           // HomeNav,
         },
 
         data:() => ({
