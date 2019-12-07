@@ -2,34 +2,22 @@ from rest_framework import status
 from django.views.decorators.csrf import csrf_exempt
 from .serializers import *
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticatedOrReadOnly,IsAuthenticated
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from django.shortcuts import render,redirect
-from rest_framework.decorators import api_view,permission_classes,authentication_classes
+from django.shortcuts import render, redirect
+from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from django.contrib.auth.models import User
-
 
 
 # Create your views here.
 
 # Welcome page
 
-
-def welcome(request):
-
-    if request.user.is_authenticated:
-        return render(request, 'index.html',)
-    else:
-        return render(request,
-                      'portfolio/welcome.html')
-
-
 # Customer API
 @csrf_exempt
 @api_view(['GET', 'POST'])
 @permission_classes(IsAuthenticatedOrReadOnly)
 def customer_list(request):
-
     if request.method == 'GET':
         customers = Customer.objects.all()
         serializer = CustomerSerializer(customers, context={'request': request}, many=True)
@@ -88,7 +76,6 @@ def stock_list(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-
 @api_view(['GET', 'PUT', 'DELETE'])
 def getStock(request, pk):
     """
@@ -113,3 +100,18 @@ def getStock(request, pk):
     elif request.method == 'DELETE':
         stock.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+def getNewsFeed():
+    mainapi = "https://newsapi.org/v2/top-headlines?country=us&apiKey="
+    API_KEY = "0f4f674423984c8e8f60d2e4daac80d2"
+    url = mainapi + API_KEY
+    json_data = requests.get(url).json()
+    title = []
+    author = []
+    des = []
+    i = 0
+    for i in range(5):
+        title = title.append(json_data["articles"][i]["title"])
+        author = author.append(json_data["articles"][i]["author"])
+        des = des.append(json_data["articles"][i]["description"])

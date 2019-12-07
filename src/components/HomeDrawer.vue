@@ -17,16 +17,6 @@
             </v-list-item>
 
 
-            <v-list-item link  @click="tologin()">
-                <v-list-item-action>
-                    <v-icon>mdi-contact-mail</v-icon>
-                </v-list-item-action>
-
-                <v-list-item-content>
-                    <v-list-item-title>Log in</v-list-item-title>
-                </v-list-item-content>
-            </v-list-item>
-
             <v-list-item link @click="goToDashboard()">
                 <v-list-item-action>
                     <v-icon>mdi-view-dashboard</v-icon>
@@ -72,7 +62,7 @@
 
 
             goHome() {
-                router.push('');
+                router.push('/home');
             },
 
             goToDashboard() {

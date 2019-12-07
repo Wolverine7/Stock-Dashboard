@@ -1,23 +1,15 @@
 <template>
-    <div>
         <v-app-bar
                 dark
+                app
                 clipped-left
         >
 
-            <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-
+            <v-app-bar-nav-icon @click.stop="drawer = true" />
             <v-toolbar-title>MavStocks</v-toolbar-title>
 
+
             <v-spacer></v-spacer>
-
-            <v-btn icon>
-                <v-icon>mdi-heart</v-icon>
-            </v-btn>
-
-            <v-btn icon>
-                <v-icon>mdi-magnify</v-icon>
-            </v-btn>
 
             <v-menu
                     left
@@ -25,32 +17,46 @@
             >
                 <template v-slot:activator="{ on }">
                     <v-btn icon v-on="on">
-                        <v-icon>mdi-dots-vertical</v-icon>
+                        <v-icon>mdi-dialpad</v-icon>
                     </v-btn>
                 </template>
 
                 <v-list>
                     <v-list-item
-                            v-for="n in 5"
-                            :key="n"
-                            @click="() => {}"
+                            @click="tologin()"
                     >
-                        <v-list-item-title>Option {{ n }}</v-list-item-title>
+                    <v-icon>mdi-account</v-icon>
+                        <v-list-item-title>Log In</v-list-item-title>
+                    </v-list-item>
+
+                    <v-list-item
+
+                    >
+                    <v-icon>mdi-account</v-icon>
+                        <v-list-item-title>Sign Up</v-list-item-title>
                     </v-list-item>
                 </v-list>
             </v-menu>
         </v-app-bar>
-    </div>
 </template>
 
 <script>
+import router from '../router'
 
     export default {
         name: "HomeNav",
 
-        data: () => ({
-           drawer: null,
-    }),
+        data () {
+          return {
+              drawer: null,
+          }
+    },
+
+        methods: ({
+            tologin() {
+                router.push('/auth')
+            },
+        }),
 
     }
 </script>

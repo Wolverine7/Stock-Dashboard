@@ -1,8 +1,10 @@
-import Vue from 'vue'
+import Vue from 'vue';
 import vuetify from './plugins/vuetify';
 import router from './router';
 import App from "./App";
-import VueSession from 'vue-session'
+import VueSession from 'vue-session';
+import Home from './components/Home';
+
 
 Vue.use(VueSession)
 
@@ -15,11 +17,12 @@ new Vue({
   render: h=>h (App),
 })
 
-// new Vue({
-//   vuetify,
-//   router,
-//   render: h=>h(Home)
-// }).$mount('#app')
+
+new Vue({
+  vuetify,
+  router,
+  render: h=>h(Home)
+})
 
 
 // new Vue({
