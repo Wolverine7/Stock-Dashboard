@@ -1,6 +1,7 @@
 <template>
 <v-app>
     <Home/>
+
     <v-content>
         <CommitChart id="chart"></CommitChart>
         <Api></Api>

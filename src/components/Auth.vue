@@ -1,6 +1,7 @@
 <template>
    <v-app>
-   <HomeNav/>
+   <Home/>
+
     <v-container grid-list-md>
       <v-layout row wrap align-center justify-center fill-height>
         <v-flex xs12 sm8 lg4 md5>
@@ -61,6 +62,7 @@
         </v-flex>
       </v-layout>
     </v-container>
+
    </v-app>
 </template>
 
@@ -68,13 +70,13 @@
 import axios from 'axios';
 import swal from 'sweetalert2';
 import router from '../router';
-import HomeNav from './HomeNav';
+import Home from './Home';
 
 export default {
     name: 'Auth',
 
     components: {
-      HomeNav,
+      Home,
     },
 
     data: () => ({
