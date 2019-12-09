@@ -4,6 +4,7 @@ from django.db import models
 from django.db import models
 from django.utils import timezone
 import requests
+from newsapi import NewsApiClient
 
 
 # Create your models here.
@@ -88,3 +89,9 @@ class Currency(models.Model):
     def to_number(self):
         to_number = float(self.from_number) * float(self.rate())
         return to_number
+
+
+
+
+
+

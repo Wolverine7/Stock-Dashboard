@@ -1,4 +1,7 @@
 <template>
+   <v-app>
+   <Home/>
+
     <v-container grid-list-md>
       <v-layout row wrap align-center justify-center fill-height>
         <v-flex xs12 sm8 lg4 md5>
@@ -59,15 +62,23 @@
         </v-flex>
       </v-layout>
     </v-container>
+
+   </v-app>
 </template>
 
 <script>
 import axios from 'axios';
 import swal from 'sweetalert2';
 import router from '../router';
+import Home from './Home';
 
 export default {
     name: 'Auth',
+
+    components: {
+      Home,
+    },
+
     data: () => ({
         credentials: {},
         valid:true,
