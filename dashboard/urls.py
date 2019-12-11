@@ -15,4 +15,5 @@ urlpatterns = [
     path('portfolio/', include('portfolio.urls', namespace='portfolio')),
     # JWT auth
     path('auth/', obtain_jwt_token)
+
 ]

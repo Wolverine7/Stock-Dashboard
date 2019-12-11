@@ -4,7 +4,7 @@ from django.db import models
 from django.db import models
 from django.utils import timezone
 import requests
-from newsapi import NewsApiClient
+# from newsapi import NewsApiClient
 
 
 # Create your models here.

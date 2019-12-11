@@ -5,6 +5,7 @@ from rest_framework_jwt.views import obtain_jwt_token
 from portfolio import views
 
 
+
 app_name = 'portfolio'
 
 urlpatterns = [
@@ -24,5 +25,6 @@ urlpatterns = [
     path('stocks/',views.stock_list),
     url(r'^api/stocks/$', views.stock_list),
     url(r'^api/stocks/(?P<pk>[0-9]+)$', views.getStock),
-
+    url('api/trendline', views.getDataTrend),
+    url('api/table', views.getDataTable)
 ]

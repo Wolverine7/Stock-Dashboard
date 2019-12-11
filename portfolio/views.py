@@ -7,6 +7,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from django.shortcuts import render, redirect
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from django.contrib.auth.models import User
+import requests
 
 
 # Create your views here.
@@ -115,3 +116,20 @@ def getNewsFeed():
         title = title.append(json_data["articles"][i]["title"])
         author = author.append(json_data["articles"][i]["author"])
         des = des.append(json_data["articles"][i]["description"])
+
+
+# def getDataTrend(request, *args, **kwargs):
+
+from rest_framework.decorators import api_view
+
+@api_view()
+def getDataTrend(request):
+    url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MSFT&apikey=demo'
+    trendline_json_data = json_data = requests.get(url).json()
+    return Response(trendline_json_data)
+
+@api_view()
+def getDataTable(request):
+    url = 'https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=Micro&apikey=demo'
+    table_json_data = json_data = requests.get(url).json()
+    return Response(table_json_data)
