@@ -4,8 +4,6 @@ import Home from './components/Home';
 import LandingPage from './components/landinPage';
 import VueRouter from 'vue-router';
 import Vue from 'vue'
-import Trendlinem from './components/Trendlinem'
-import Table from './components/Table'
 
 
 Vue.use(VueRouter)
@@ -42,15 +40,5 @@ export default new VueRouter({
                 name: 'Auth',
                 component: Auth
             },
-            {
-                path: '/trendline',
-                name: 'Trendline',
-                component: Trendlinem
-            },
-            {
-                path:'/trendlinem',
-                name: 'Trendlinem',
-                component: Trendlinem
-            }
         ]
 })

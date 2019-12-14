@@ -27,7 +27,6 @@ import router from "../router";
 import Home from './Home'
 import Trendline from './Trendline'
 import Table from './Table'
-import Charting from './Charting'
 import Trendlinem from './Trendlinem'
 
 export default {
