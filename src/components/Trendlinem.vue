@@ -28,7 +28,7 @@
         mounted(){
             const axios = require('axios')
             const Chart = require('chart.js');
-            axios.get('stockdashboard8380.herokuapp.com/portfolio/api/mutipledata').then(
+            axios.get('https://stockdashboard8380.herokuapp.com/portfolio/api/mutipledata').then(
                     response => {
                         this.msft_data = response.data["msft_json_data"]["Time Series (Daily)"]
                         this.goog_data = response.data["goog_json_data"]["Time Series (Daily)"]

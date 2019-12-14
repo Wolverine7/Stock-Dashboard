@@ -20,7 +20,7 @@ export default {
     mounted() {
          const axios = require('axios')
          const Chart = require('chart.js');
-         axios.get('stockdashboard8380.herokuapp.com/portfolio/api/monthly').then(
+         axios.get('https://stockdashboard8380.herokuapp.com/portfolio/api/monthly').then(
              response => {
                  this.response = response.data["Monthly Time Series"]
                  this.symbol = response.data["Meta Data"]["2. Symbol"]

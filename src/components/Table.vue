@@ -25,7 +25,7 @@
     },
       mounted(){
         const axios = require('axios')
-        axios.get('stockdashboard8380.herokuapp.com/portfolio/api/table').then(
+        axios.get('https://stockdashboard8380.herokuapp.com/portfolio/api/table').then(
                     response => {
                         this.response = response.data["bestMatches"]
                         console.log(this.response)

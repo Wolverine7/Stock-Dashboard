@@ -20,7 +20,7 @@
         mounted(){
             const axios = require('axios')
             const Chart = require('chart.js');
-            axios.get('http://stockdashboard8380.herokuapp.com/portfolio/api/trendline').then(
+            axios.get('https://stockdashboard8380.herokuapp.com/portfolio/api/trendline').then(
                     response => {
                         this.response = response.data["Time Series (Daily)"]
                         this.symbol = response.data["Meta Data"]["2. Symbol"]
