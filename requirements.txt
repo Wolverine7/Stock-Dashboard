@@ -11,7 +11,7 @@ djangorestframework-jwt==1.11.0
 djangorestframework==3.7.7
 dj-database-url==0.5.0
 gunicorn==19.9.0
-psycopg==2.7.5
+psycopg
 whitenoise==4.0
 django-cors-headers
 newsapi-python==0.2.6
