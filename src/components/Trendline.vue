@@ -76,7 +76,7 @@
 
 <style>
     #line{
-        width: 1000px;
-        height: 1000px;
+        width: 800px;
+        height: 800px;
     }
 </style>

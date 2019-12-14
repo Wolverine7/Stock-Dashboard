@@ -159,13 +159,13 @@ def getMultipleDataTrend(request):
                 msft_json_data = cache.get('msft_data')
 
         elif i == 1:
-            symbol = 'goog'
+            symbol = 'DIS'
             full_url = url + symbol + api_key
-            if not cache.get('goog_data'):
+            if not cache.get('dis_data'):
                 goog_json_data = requests.get(full_url).json()
-                cache.set('goog_data', goog_json_data, 3000)
+                cache.set('dis_data', goog_json_data, 3000)
             else:
-                goog_json_data = cache.get('goog_data')
+                goog_json_data = cache.get('dis_data')
 
         elif i == 2:
             symbol = 'TSLA'
@@ -184,6 +184,21 @@ def getMultipleDataTrend(request):
         }
     )
 
+
+@api_view()
+def getDataOpenClose(request):
+    api_key = '&apikey=LWNQ7SYCHP7CF891'
+    url = 'https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol='
+    symbol = 'MSFT'
+    full_url = url + symbol + api_key
+    if not cache.get('dataopenclose'):
+        trendline_json_data = requests.get(full_url).json()
+        cache.set('dataopenclose', trendline_json_data, 3000)
+        print('get from cache')
+    else:
+        trendline_json_data = cache.get('dataopenclose')
+
+    return Response(trendline_json_data)
 
 @api_view()
 def getDataTable(request):

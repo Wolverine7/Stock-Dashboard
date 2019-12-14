@@ -27,5 +27,6 @@ urlpatterns = [
     url(r'^api/stocks/(?P<pk>[0-9]+)$', views.getStock),
     url('api/trendline', views.getDataTrend),
     url('api/table', views.getDataTable),
-    url('api/mutipledata', views.getMultipleDataTrend)
+    url('api/mutipledata', views.getMultipleDataTrend),
+    url('api/monthly', views.getDataOpenClose)
 ]

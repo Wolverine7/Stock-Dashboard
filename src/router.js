@@ -48,9 +48,9 @@ export default new VueRouter({
                 component: Trendlinem
             },
             {
-                path:'/table',
-                name: 'Table',
-                component: Table
+                path:'/trendlinem',
+                name: 'Trendlinem',
+                component: Trendlinem
             }
         ]
 })

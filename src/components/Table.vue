@@ -44,6 +44,8 @@
 
 <style>
     #table{
-        width: 400px;
+        width: 700px;
+        height: 400px;
+        padding-left: 100px;
     }
 </style>

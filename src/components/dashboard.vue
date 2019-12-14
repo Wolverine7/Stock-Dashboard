@@ -3,14 +3,17 @@
     <Home/>
 
     <v-content>
-        <v-container>
-            <v-row class = 'mb-6' no-gutters>
-            <CommitChart id="chart"></CommitChart>
-            <Api></Api>
-            <Table/>
+        <!--<v-container>-->
+            <v-row class = 'mb-3'>
+                <Charting/>
+                <Api></Api>
+                <Table/>
             </v-row>
-            <trendline/>
-        </v-container>
+            <v-row class="mb-3" no-gutters>
+                 <trendline/>
+                <Trendlinem/>
+            </v-row>
+        <!--</v-container>-->
     </v-content>
 
 </v-app>
@@ -24,16 +27,19 @@ import router from "../router";
 import Home from './Home'
 import Trendline from './Trendline'
 import Table from './Table'
+import Charting from './Charting'
+import Trendlinem from './Trendlinem'
 
 export default {
   name: 'Dashboard',
 
   components: {
-      CommitChart,
+      Charting,
       Api,
       Home,
       Trendline,
-      Table
+      Table,
+      Trendlinem
     },
 
     data: () => ({
