@@ -33,7 +33,6 @@ export default {
   name: 'Dashboard',
 
   components: {
-      Charting,
       Api,
       Home,
       Trendline,
