@@ -21,13 +21,13 @@
 </template>
 
 <script>
-import CommitChart from '../js/CommitChart';
 import Api from './Api';
 import router from "../router";
 import Home from './Home'
 import Trendline from './Trendline'
 import Table from './Table'
 import Trendlinem from './Trendlinem'
+import Charting from './Charting'
 
 export default {
   name: 'Dashboard',
@@ -37,7 +37,8 @@ export default {
       Home,
       Trendline,
       Table,
-      Trendlinem
+      Trendlinem,
+      Charting
     },
 
     data: () => ({
