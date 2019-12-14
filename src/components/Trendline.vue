@@ -52,10 +52,10 @@
                             labels: this.labels,
                             datasets: [{
                                 label: this.symbol,
-                                backgroundColor: 'rgb(64,64,64)',
+                                backgroundColor: 'rgba(54, 162, 235, 0.2)',
                                 pointBackgroundColor: 'white',
                                 borderWidth:1,
-                                borderColor: '#FC2525',
+                                borderColor: 'rgba(54, 162, 235, 1)',
                                 pointBorderColor: 'white',
                                 data: this.data
                             }]
@@ -75,5 +75,8 @@
 </script>
 
 <style>
-
+    #line{
+        width: 1000px;
+        height: 1000px;
+    }
 </style>

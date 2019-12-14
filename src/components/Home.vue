@@ -49,7 +49,7 @@
                 </template>
 
                 <v-list>
-                    <v-list-item
+                    <v-list-item v-if="authenticated === false"
                             @click="tologin()"
                     >
                         <v-icon>mdi-account</v-icon>
@@ -63,6 +63,10 @@
                         <v-list-item-title>Sign Up</v-list-item-title>
                     </v-list-item>
                 </v-list>
+                  <v-list-item @click="logout" v-if="authenticated===true">
+                        <v-icon>mdi-account</v-icon>
+                        <v-list-item-title>Log Out</v-list-item-title>
+                    </v-list-item>
             </v-menu>
         </v-app-bar>
     </div>
@@ -82,6 +86,7 @@
                 {icon: 'mdi-account', title: 'My Profile'},
                 {icon: 'mdi-settings', title: 'Change My Password'},
             ],
+            authenticated:''
         }),
 
         methods: ({
@@ -94,11 +99,15 @@
                 localStorage.removeItem('isAuthenticates');
                 localStorage.removeItem('log_user');
                 localStorage.removeItem('token');
-                this.authenticated = false;
-                window.location = ""
+                 this.$session.destroy();
+                router.push('/auth')
             },
-
-
+            checkLogin(){
+              if (this.$session.has("token")) {
+                    console.log('hello')
+                  this.authenticated = true
+                }
+            },
             goHome() {
                 router.push('/home');
             },
@@ -107,6 +116,9 @@
                 router.push('/dashboard');
             },
         }),
+        mounted(){
+            this.checkLogin()
+        }
     }
 </script>
 

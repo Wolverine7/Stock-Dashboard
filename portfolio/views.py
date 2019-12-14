@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from django.contrib.auth.models import User
 import requests
-
+from django.core.cache import cache
 
 # Create your views here.
 
@@ -17,7 +17,8 @@ import requests
 # Customer API
 @csrf_exempt
 @api_view(['GET', 'POST'])
-@permission_classes(IsAuthenticatedOrReadOnly)
+# @permission_classes(IsAuthenticatedOrReadOnly)
+# @permission_classes(permissions.IsAuthenticated,)
 def customer_list(request):
     if request.method == 'GET':
         customers = Customer.objects.all()
@@ -30,6 +31,7 @@ def customer_list(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
@@ -122,11 +124,66 @@ def getNewsFeed():
 
 from rest_framework.decorators import api_view
 
+
+#get the data
 @api_view()
 def getDataTrend(request):
-    url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MSFT&apikey=demo'
-    trendline_json_data = json_data = requests.get(url).json()
+    # url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MSFT&apikey=demo'
+    url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='
+    symbol = 'MSFT'
+    api_key = '&apikey=U2JCL0QUH7W37LGH'
+    full_url = url+symbol+api_key
+    if not cache.get('trendlinedata'):
+        trendline_json_data = requests.get(full_url).json()
+        cache.set('trendlinedata', trendline_json_data, 3000)
+        print('get from cache')
+    else:
+        trendline_json_data = cache.get('trendlinedata')
+
     return Response(trendline_json_data)
+
+
+#get the multiple data
+@api_view()
+def getMultipleDataTrend(request):
+    url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='
+    api_key = '&apikey=LOI2I483LHWKLQBT'
+    for i in range(3):
+        if i == 0:
+            symbol = 'MSFT'
+            full_url = url + symbol + api_key
+            if not cache.get('msft_data'):
+                msft_json_data = requests.get(full_url).json()
+                cache.set('msft_data', msft_json_data, 3000)
+            else:
+                msft_json_data = cache.get('msft_data')
+
+        elif i == 1:
+            symbol = 'goog'
+            full_url = url + symbol + api_key
+            if not cache.get('goog_data'):
+                goog_json_data = requests.get(full_url).json()
+                cache.set('goog_data', goog_json_data, 3000)
+            else:
+                goog_json_data = cache.get('goog_data')
+
+        elif i == 2:
+            symbol = 'TSLA'
+            full_url = url + symbol + api_key
+            if not cache.get('tsla_data'):
+                tsla_json_data = requests.get(full_url).json()
+                cache.set('tsla_data', tsla_json_data, 3000)
+            else:
+                tsla_json_data = cache.get('tsla_data')
+
+    return Response(
+        {
+            'msft_json_data': msft_json_data,
+            'goog_json_data': goog_json_data,
+            'tsla_json_data': tsla_json_data
+        }
+    )
+
 
 @api_view()
 def getDataTable(request):

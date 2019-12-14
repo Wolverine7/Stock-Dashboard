@@ -33,7 +33,7 @@
 </script>
 
 <style>
-    html{
-      overflow-y: hidden;
-    }
+    /*html{*/
+      /*overflow-y: hidden;*/
+    /*}*/
 </style>

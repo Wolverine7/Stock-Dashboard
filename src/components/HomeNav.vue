@@ -36,6 +36,9 @@
                     <v-icon>mdi-account</v-icon>
                         <v-list-item-title>Sign Up</v-list-item-title>
                     </v-list-item>
+
+
+
                 </v-list>
             </v-menu>
         </v-app-bar>
@@ -57,6 +60,11 @@ import router from '../router'
             tologin() {
                 router.push('/auth')
             },
+            logout(){
+                localStorage.removeItem('token')
+                localStorage.removeItem('isAuthenticates')
+                localStorage.removeItem('log_user')
+            }
         }),
 
     }

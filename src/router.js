@@ -4,7 +4,7 @@ import Home from './components/Home';
 import LandingPage from './components/landinPage';
 import VueRouter from 'vue-router';
 import Vue from 'vue'
-import Trendline from './components/Trendline'
+import Trendlinem from './components/Trendlinem'
 import Table from './components/Table'
 
 
@@ -45,7 +45,7 @@ export default new VueRouter({
             {
                 path: '/trendline',
                 name: 'Trendline',
-                component: Trendline
+                component: Trendlinem
             },
             {
                 path:'/table',

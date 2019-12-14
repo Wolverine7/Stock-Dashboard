@@ -3,8 +3,14 @@
     <Home/>
 
     <v-content>
-        <CommitChart id="chart"></CommitChart>
-        <Api></Api>
+        <v-container>
+            <v-row class = 'mb-6' no-gutters>
+            <CommitChart id="chart"></CommitChart>
+            <Api></Api>
+            <Table/>
+            </v-row>
+            <trendline/>
+        </v-container>
     </v-content>
 
 </v-app>
@@ -16,6 +22,8 @@ import CommitChart from '../js/CommitChart';
 import Api from './Api';
 import router from "../router";
 import Home from './Home'
+import Trendline from './Trendline'
+import Table from './Table'
 
 export default {
   name: 'Dashboard',
@@ -24,6 +32,8 @@ export default {
       CommitChart,
       Api,
       Home,
+      Trendline,
+      Table
     },
 
     data: () => ({
@@ -35,8 +45,12 @@ export default {
             if (!this.$session.has("token")) {
                 router.push("/auth");
             }
-        }
-    })
+        },
+
+    }),
+    mounted(){
+      this.checkLoggedIn()
+    }
 
     };
 </script>
