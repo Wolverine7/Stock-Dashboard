@@ -100,7 +100,7 @@ export default {
           // checking if the input is valid
             if (this.$refs.form.validate()) {
               this.loading = true;
-              axios.post('/auth/', this.credentials).then(res => {
+              axios.post('http://localhost:8000/auth/', this.credentials).then(res => {
                 this.$session.start();
                 this.$session.set('token', res.data.token);
                 router.push('/dashboard');
